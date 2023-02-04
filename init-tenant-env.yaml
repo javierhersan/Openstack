@@ -1,0 +1,24 @@
+parameter_defaults:
+  dns: 8.8.8.8
+  private_net1_name: Net1
+  private_subnet1_name: Subnet1
+  private_subnet1_cidr: 10.103.82.0/24
+  private_subnet1_gateway: 10.103.82.1
+  private_net1_pool_start: 10.103.82.10
+  private_net1_pool_end: 10.103.82.200
+  private_net2_name: Net2
+  private_subnet2_name: Subnet2
+  private_subnet2_cidr: 10.103.83.0/24
+  private_net2_pool_start: 10.103.83.10
+  private_net2_pool_end: 10.103.83.200
+  public_net_name: ExtNet
+  router_name: RTR1TNT82CL3
+  VM1_name: Server1
+  VM2_name: Server2
+  VM3_name: Server3
+  VM4_name: ServerAdmin
+  VM5_name: ServerDB
+  key_name: KP1_TNT82_CL3
+  image_name: xenial-server-cloudimg-amd64-vnx
+  flavor_name: m1.smaller
+  sec_group_name: SG1_TNT00_CL3

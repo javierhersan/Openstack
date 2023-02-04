@@ -1,0 +1,4 @@
+parameter_defaults:  
+ project_name: TNT00
+ admin_name: tnt00user
+ admin_password: password

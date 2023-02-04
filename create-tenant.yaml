@@ -1,0 +1,39 @@
+heat_template_version: 2016-04-08
+
+description: Tenant init for GBM Cloud 
+
+parameters: 
+  project_name: 
+    type: string 
+    description: Name of Project (Tenant)  
+  admin_name: 
+    type: string 
+    description: Username of Project Admin  
+  admin_password: 
+    type: string 
+    description: Password for Project Admin  
+    hidden: true 
+
+resources: 
+  tenant: 
+    type: OS::Keystone::Project 
+    properties:
+      name: { get_param: project_name } 
+      domain: default 
+  tenant_admin: 
+    type: OS::Keystone::User 
+    properties: 
+      name: { get_param: admin_name } 
+      password: { get_param: admin_password } 
+  tenant_admin_role: 
+    type: OS::Keystone::UserRoleAssignment 
+    properties: 
+      user: { get_resource: tenant_admin } 
+      roles:  
+        - {project: {get_resource: tenant}, role: admin} 
+  default_admin_role: 
+    type: OS::Keystone::UserRoleAssignment 
+    properties: 
+      user: admin 
+      roles:  
+        - {project: {get_resource: tenant}, role: admin}
